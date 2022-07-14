@@ -46,7 +46,7 @@ public class UserController : Controller
     }
 
     [Authorize]
-    [HttpGet]
+    [HttpGet("All")]
     public virtual async Task<List<UserDTO>> GetUsers()
     {
         var res = await _userFacade.GetUsers();

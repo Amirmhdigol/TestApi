@@ -50,6 +50,8 @@ builder.Services.AddVersionedApiExplorer(option =>
 var connectionString = builder.Configuration.GetConnectionString("DefaulConnection");
 builder.Services.RegisterDependency(connectionString);
 
+builder.Services.AddTransient<CustomJwtValidation>();
+
 builder.Services.AddJwtAuthentication(builder.Configuration);
 var app = builder.Build();
 
@@ -66,6 +68,7 @@ app.UseSwaggerUI(option =>
 });
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
