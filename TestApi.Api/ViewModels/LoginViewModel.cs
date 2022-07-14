@@ -1,0 +1,12 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TestApi.Api.ViewModels;
+public class LoginViewModel
+{
+    [Required(ErrorMessage = "Please Enter phone number")]
+    public string Name { get; set; }
+
+    [Required(ErrorMessage = "Please enter password")]
+    [MinLength(6, ErrorMessage = "Password should be more than 5 characters")]
+    public string Password { get; set; }
+}
